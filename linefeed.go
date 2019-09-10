@@ -8,7 +8,9 @@ func init() {
 	if runtime.GOOS == "windows" {
 		linefeed = []byte("\r\n")
 	} else if runtime.GOOS == "darwin" {
-		linefeed = []byte("\r")
+        // class macos use \r but the newer version is \n
+        // See https://en.wikipedia.org/wiki/Newline
+		linefeed = []byte("\n")
 	} else {
 		linefeed = []byte("\n")
 	}
